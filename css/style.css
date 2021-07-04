@@ -19,7 +19,7 @@ body{
 } 
 
 .calcultor{
-    width: 350px;
+    max-width: 350px;
     height: 525px;
     border-radius:  20px;
     background: #062145 0% 0% no-repeat padding-box;
@@ -42,7 +42,7 @@ body{
 }
 .result{
     font-size: 30px;
-    overflow: hidden;
+    overflow: hidden;    /* 超過的人 */
 }
 
 .allbtn{
@@ -62,19 +62,17 @@ body{
     height: 64px;
     outline: none; 
 	border: none;
-	background: transparent;
+	background: transparent;  /* 背景透明 */
 	color: #fff;
 	cursor: pointer;
-	font-size: inherit;
-
-
+	font-size: inherit;  /* 繼承父層的大小 */
 }
-.btnmar{
+.btnmargin{
     margin-bottom: 16px;
 }
 
 .btnba{
-    background: #041936 0% 0% no-repeat padding-box;
+    background: #041936 0% 0% no-repeat padding-box; 
     border-radius: 16px;
     font-weight: bold;
 }
@@ -89,5 +87,4 @@ body{
     border-radius: 16px;
     font-weight: bold;
     text-align: right;
- 
-}
+} 

@@ -1,4 +1,5 @@
-//取DOm
+//DOM
+//1. 設定全域變數，可分為下面幾種：
 let decimalbtn = document.querySelector('.btn-decimal');//點數
 let clearbtn = document.querySelector('.btn-clear')//全部清除
 let backspacebtn = document.querySelector('.btn-backspace')//刪除
@@ -29,6 +30,7 @@ let updateDisplayResult = (e) =>{
 // for迴圈抓住所有btn-num監聽click事件
 for(let i=0; i<calcnumbtn.length; i++){
     calcnumbtn[i].addEventListener('click',updateDisplayResult,false);
+    // console.log(calcnumbtn[i])
 }
 
 
@@ -43,7 +45,8 @@ clearbtn.addEventListener('click',()=>{
 
 //刪除
 backspacebtn.addEventListener('click',()=>{
-    displayVal = displayVal.slice(0,displayVal.length -1)
+
+    displayVal = displayVal.slice(0,displayVal.length -1) 
     if(displayVal === '')
        displayVal = '0';
 
@@ -54,9 +57,10 @@ backspacebtn.addEventListener('click',()=>{
 //點數
 
 decimalbtn.addEventListener('click',()=>{
+
     if(!displayVal.includes('.'))
         displayVal+='.'
-    
+
     displayResult.innerText = displayVal;
     displayDetail.innerText = displayVal;
 })
@@ -65,7 +69,6 @@ decimalbtn.addEventListener('click',()=>{
 
 let performOperator = (e) =>{
     let operator = e.target.innerText;
- 
     switch(operator){
         case '+':
             pendingVal = displayVal;
@@ -104,12 +107,12 @@ let performOperator = (e) =>{
             evalStrAry.push(displayVal);//str
             let evaluation = eval(evalStrAry.join(' '));//計算
             displayVal = evaluation + ''; //num改回str;
-            
+
             displayResult.innerText = displayVal;
             displayDetail.innerText = displayVal;
- 
+
             evalStrAry = [];
-    
+
             break; 
 
         default:
@@ -121,5 +124,6 @@ let performOperator = (e) =>{
 
 // for迴圈抓住所有btn-operator監聽click事件
 for(let i=0; i<calcoperatorbtn.length; i++){
+    //先捕獲，再冒泡
     calcoperatorbtn[i].addEventListener('click',performOperator,false)
-}
+} 
