@@ -27,10 +27,9 @@ let updateDisplayResult = (e) =>{
     displayDetail.innerText = displayVal;
 }
 
-// for迴圈抓住所有btn-num監聽click事件
+
 for(let i=0; i<calcnumbtn.length; i++){
-    calcnumbtn[i].addEventListener('click',updateDisplayResult,false);
-    // console.log(calcnumbtn[i])
+    calcnumbtn[i].addEventListener('click',updateDisplayResult,false);  
 }
 
 
@@ -55,7 +54,6 @@ backspacebtn.addEventListener('click',()=>{
 })
 
 //點數
-
 decimalbtn.addEventListener('click',()=>{
 
     if(!displayVal.includes('.'))
@@ -69,6 +67,7 @@ decimalbtn.addEventListener('click',()=>{
 
 let performOperator = (e) =>{
     let operator = e.target.innerText;
+
     switch(operator){
         case '+':
             pendingVal = displayVal;
@@ -76,7 +75,6 @@ let performOperator = (e) =>{
             displayResult.innerText = displayVal;
             evalStrAry.push(pendingVal);
             evalStrAry.push('+')
-
             break;
 
         case '−':
@@ -84,7 +82,7 @@ let performOperator = (e) =>{
             displayVal = '0';
             displayResult.innerText = displayVal;
             evalStrAry.push(pendingVal);
-            evalStrAry.push('−')
+            evalStrAry.push('-')
             break;
 
         case '×':
@@ -112,7 +110,6 @@ let performOperator = (e) =>{
             displayDetail.innerText = displayVal;
 
             evalStrAry = [];
-
             break; 
 
         default:
@@ -121,8 +118,6 @@ let performOperator = (e) =>{
 }
 
 
-
-// for迴圈抓住所有btn-operator監聽click事件
 for(let i=0; i<calcoperatorbtn.length; i++){
     //先捕獲，再冒泡
     calcoperatorbtn[i].addEventListener('click',performOperator,false)
